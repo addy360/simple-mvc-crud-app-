@@ -23,6 +23,16 @@
 			}
 		}
 
+		//find user by id
+		public function getUserById($id){
+			$this->db->query('SELECT * FROM users WHERE id = :id;');
+			$this->db->bind(':id',$id);
+
+			return $this->db->single();
+
+			
+		}
+
 		//register user
 		public function register($data){
 			$this->db->query("INSERT INTO users( name , email , password) VALUES (:name , :email , :password)");
